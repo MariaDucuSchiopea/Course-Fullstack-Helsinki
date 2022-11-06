@@ -5,13 +5,6 @@ const helper = require('./test_helper')
 const api = supertest(app)
 const Blog = require('../models/blog')
 
-let token = ''
-
-beforeAll(async () => {
-  const response = await supertest(app).get('/authentication/test')
-  token = response.body.token
-})
-
 beforeEach(async () => {
   await Blog.deleteMany({})
 
